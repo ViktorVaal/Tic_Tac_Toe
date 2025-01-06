@@ -1,0 +1,123 @@
+/* Hintergrundfarbe der gesamten Seite */
+body {
+  background-color: #323232;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Tabelle ohne äußeren Rahmen */
+table {
+  border-collapse: collapse;
+  width: 300px;
+  height: 300px;
+  border: none; /* Entfernt den äußeren Rahmen */
+}
+
+#content {
+  position: relative;
+}
+
+button {
+  background-color: #00b0ef;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #007bb5;
+}
+
+button:active {
+  background-color: #005f87;
+}
+
+h1 {
+  position: absolute;
+  top: 40px;
+}
+
+/* Weiße Trennlinien mit 5px Breite nur innerhalb der Tabelle */
+
+td {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid #323232;
+  position: relative; /* Erforderlich für das Pseudoelement */
+}
+
+.winning::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  transform: translateY(-50%); /* Linie mittig auf der vertikalen Achse */
+}
+
+/* Für diagonale Linien müssen wir die Linie drehen */
+.winning.diagonal::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Zweite diagonale Richtung */
+.winning.diagonal.reverse::before {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+td:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+table td {
+  border: 5px solid white;
+}
+table tr:first-child td {
+  border-top: 0;
+}
+table tr td:first-child {
+  border-left: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:last-child {
+  border-right: 0;
+}
+
+/* Farben der Symbole */
+.circle {
+  color: red;
+}
+
+.cross {
+  color: blue;
+}
+
+#current-player {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+#player-indicator {
+  color: #00B0EF;
+}
